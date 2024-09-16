@@ -6,7 +6,7 @@ return {
             "saadparwaiz1/cmp_luasnip",
             -- provide vscode like snippets to cmp
             "rafamadriz/friendly-snippets",
-        }
+        },
     },
     -- cmp-nvim-lsp provides language specific completion suggestions to nvim-cmp
     {
@@ -39,17 +39,17 @@ return {
                     -- menuone: automatically select the first option of the menu
                     -- preview: automatically display the completion candiate as you navigate the menu
                     -- noselect: prevent neovim from automatically selecting a completion option while navigating the menu
-                    competeopt = "menu,menuone,preview,noselect"
+                    competeopt = "menu,menuone,preview,noselect",
                 },
                 -- setup snippet support based on the active lsp and the current text of the file
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
-                    end
+                    end,
                 },
                 -- setup how we interact with completion menus and options
                 mapping = cmp.mapping.preset.insert({
-                     -- previous suggestion
+                    -- previous suggestion
                     ["<C-k>"] = cmp.mapping.select_prev_item(),
                     -- next suggestion
                     ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -60,17 +60,17 @@ return {
                     -- close completion window
                     ["<C-e>"] = cmp.mapping.abort(),
                     -- confirm completion, only when you explicitly selected an option
-                    ["<CR>"] = cmp.mapping.confirm({ select = false})
+                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
                 }),
                 -- Where and how should cmp rank and find completions
                 -- Order matters, cmp will provide lsp suggestions above all else
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'buffer' },
-                    { name = 'path' }
-                })
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "path" },
+                }),
             })
-        end
-    }
+        end,
+    },
 }

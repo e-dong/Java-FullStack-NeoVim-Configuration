@@ -3,7 +3,7 @@ return {
     dependencies = {
         -- ui plugins to make debugging simplier
         "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio"
+        "nvim-neotest/nvim-nio",
     },
     config = function()
         -- gain access to the dap plugin and its functions
@@ -14,7 +14,7 @@ return {
         -- Setup the dap ui with default configuration
         dapui.setup()
 
-         -- setup an event listener for when the debugger is launched
+        -- setup an event listener for when the debugger is launched
         dap.listeners.before.launch.dapui_config = function()
             -- when the debugger is launched open up the debug ui
             dapui.open()
@@ -27,6 +27,6 @@ return {
         vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "[D]ebug [S]tart" })
 
         -- set a vim motion to close the debugging ui
-        vim.keymap.set("n", "<leader>dc", dapui.close, {desc = "[D]ebug [C]lose"})
-    end
+        vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "[D]ebug [C]lose" })
+    end,
 }
