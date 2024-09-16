@@ -22,7 +22,7 @@ return {
         config = function()
             -- ensure the java debug adapter is installed
             require("mason-nvim-dap").setup({
-                ensure_installed = { "java-debug-adapter", "java-test" }
+                ensure_installed = { "javadbg", "javatest" }
             })
         end
     },
