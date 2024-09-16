@@ -25,7 +25,7 @@ local function get_bundles()
 	local java_debug_path = java_debug:get_install_path()
 
 	local bundles = {
-		vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
+		vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
 	}
 
 	-- Find the Java Test package in the Mason Registry
@@ -33,7 +33,7 @@ local function get_bundles()
 	-- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
 	local java_test_path = java_test:get_install_path()
 	-- Add all of the Jars for running tests in debug mode to the bundles list
-	vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
+	vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", true), "\n"))
 
 	return bundles
 end
