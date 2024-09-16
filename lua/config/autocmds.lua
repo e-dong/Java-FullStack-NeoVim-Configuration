@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "java" },
 	group = group_id,
 	callback = function()
-		require("config.jdtls.setup").setup_jdtls()
+		require("config.jdtls").setup_jdtls()
 	end,
 })
 
