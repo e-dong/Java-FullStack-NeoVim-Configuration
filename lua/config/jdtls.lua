@@ -289,7 +289,7 @@ local function setup_jdtls()
 	}
 
 	-- Function that will be ran once the language server is attached
-	local on_attach = function(_, bufnr)
+	local on_attach = function()
 		-- Map the Java specific key mappings once the server is attached
 		java_keymaps()
 
@@ -301,8 +301,7 @@ local function setup_jdtls()
 		-- the debug tool, attempt to run the debug tool while in the main class of the application, or restart the neovim instance
 		-- Unfortunately I have not found an elegant way to ensure this works 100%
 		require("jdtls.dap").setup_dap_main_class_configs()
-		-- Enable jdtls commands to be used in Neovim
-		require("jdtls.setup").add_commands()
+
 		-- Refresh the codelens
 		-- Code lens enables features such as code reference counts, implemenation counts, and more.
 		vim.lsp.codelens.refresh()
