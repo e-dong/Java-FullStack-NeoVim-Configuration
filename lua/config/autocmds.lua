@@ -8,3 +8,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.opt.number = false
+		vim.wo.relativenumber = false
+		vim.opt.signcolumn = "no"
+	end,
+})
