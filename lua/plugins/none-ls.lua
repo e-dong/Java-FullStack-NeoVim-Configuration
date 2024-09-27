@@ -12,15 +12,20 @@ return {
 				sources = {
 					-- setup lua formatter
 					null_ls.builtins.formatting.stylua,
-					-- setup eslint linter for javascript
-					require("none-ls.diagnostics.eslint_d"),
-					-- setup prettier to format languages that are not lua
-					null_ls.builtins.formatting.prettier,
-				},
-			})
+                    -- JAVA
+                    null_ls.builtins.formatting.google_java_format,
+                    null_ls.builtins.diagnostics.checkstyle.with({
+                        extra_args = { "-c", "/google_checks.xml" },
+                    }),
+                    -- setup eslint linter for javascript
+                    require("none-ls.diagnostics.eslint_d"),
+                    -- setup prettier to format languages that are not lua
+                    null_ls.builtins.formatting.prettier,
+                },
+            })
 
-			-- set up a vim motion for <Space> + c + f to automatically format our code based on which langauge server is active
-			vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[C]ode [F]ormat" })
-		end,
-	},
+            -- set up a vim motion for <Space> + c + f to automatically format our code based on which langauge server is active
+            vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[C]ode [F]ormat" })
+        end,
+    },
 }
