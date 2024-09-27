@@ -18,6 +18,6 @@ return {
         vim.keymap.set("n", "<leader>Je", springboot_nvim.generate_enum, { desc = "[J]ava Create [E]num" })
 
         -- run the setup function with default configuration
-        springboot_nvim.setup({})
+        springboot_nvim.setup()
     end,
 }
