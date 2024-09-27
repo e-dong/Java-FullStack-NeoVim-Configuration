@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Remove left column and numbers in the buffer containing the terminal
 vim.api.nvim_create_autocmd("TermOpen", {
 	callback = function()
 		vim.opt.number = false
