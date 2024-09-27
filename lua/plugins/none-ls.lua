@@ -1,19 +1,5 @@
 return {
     {
-        "jay-babu/mason-null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            "williamboman/mason.nvim",
-            "nvimtools/none-ls.nvim",
-        },
-        config = function()
-            -- Ensure all formatters and linters are installed
-            require("mason-null-ls").setup({
-                ensure_installed = { "stylua", "prettier", "eslint_d" },
-            })
-        end,
-    },
-    {
         "nvimtools/none-ls.nvim",
         dependencies = {
             "nvimtools/none-ls-extras.nvim",
